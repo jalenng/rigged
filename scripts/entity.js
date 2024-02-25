@@ -9,7 +9,8 @@ class Entity {
     elem.appendChild(imgElem);
     elem.classList.add("draggable");
     elem.classList.add("droppable");
-    
+
+    this.name = name;
     elem.setAttribute("data-item-name", name);
     elem.setAttribute("draggable", "true");
 
@@ -53,7 +54,10 @@ class Entity {
     const from = event.dataTransfer.getData("text/plain");
     const to = event.target.getAttribute("data-item-name");
     console.log("drop", `${from} dragged onto ${to}`);
-    this.onDrop?.();
+    this.onDrop?.({
+      from,
+      to,
+    });
   }
 
   setPos(pos) {
@@ -61,7 +65,7 @@ class Entity {
     this.elem.style.top = `${pos.y}px`;
   }
 
-  onRemove(element) {
+  remove(element) {
     // Remove the specified HTML element from its parent
     const elem = this.elem;
     const parent = elem?.parentNode;
