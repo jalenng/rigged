@@ -6,7 +6,7 @@ body {
   height: 100vh;
   background-color: black;
 }
-.game-area { 
+.game-area {
   position: relative;
   width: 720px;
   height: 480px;
@@ -17,9 +17,12 @@ body {
   border: 1px solid red;
   position: absolute;
   padding: 16px;
-  background-color: wheat;
+  background-color: white;
   * {
     pointer-events: none;
+  }
+  img {
+    max-width: 100px;
   }
 }
 .draggable.dragging {
