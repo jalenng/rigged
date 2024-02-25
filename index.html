@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Web Page</title>
-    <link rel="stylesheet" type="text/css" href="index.css">
-  </head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Web Page</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
 </head>
+</head>
+
 <body>
-    <!-- Your HTML content goes here -->
+  <!-- Your HTML content goes here -->
 
-    <script src="./index.js"></script>
+  <script src="./index.js"></script>
 
-    <div class="draggable droppable" draggable="true" style="left: 10px; top: 10px;">bomb</div>
-    <div class="draggable droppable" draggable="true" style="left: 10px; top: 110px;">bathtub</div>
-    <div id="dragImage"></div>
+  <div class="game-area">
+    <div class="draggable droppable" draggable="true" data-item-name="bomb" style="left: 10px; top: 10px;">
+      <img src="./images/Bomb.png" width="100px" />
+    </div>
+    <div class="draggable droppable" draggable="true" data-item-name="bathtub" style="left: 10px; top: 110px;">
+      <img src="./images/BathTUb.png" width="100px" />
+    </div>
+  </div>
 </body>
+
 </html>
