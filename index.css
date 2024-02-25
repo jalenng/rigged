@@ -29,3 +29,26 @@ body {
   /* pointer-events: none; */
   opacity: 0.2;
 }
+@keyframes wigglyAnim {
+  0% {
+    transform: translate(5%, 5%) rotate(0deg);
+  }
+  25% {
+    transform: translate(0%, 5%) rotate(2deg);
+  }
+  50% {
+    transform: translate(5%, 0%) rotate(0deg);
+  }
+  75% {
+    transform: translate(0%, 0%) rotate(-2deg);
+  }
+  100% {
+    transform: translate(2%, 1%) rotate(0deg);
+  }
+}
+
+.wiggly {
+  font-size: 2rem;
+  display: inline-block;
+  animation: wigglyAnim 0.5s infinite;
+}
