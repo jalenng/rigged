@@ -25,10 +25,11 @@ function showEarthExplosion(entityManager, Entity) {
     rainbowEarth.appendChild(star);
   }
 
-  const lastTime = Date.now();
+  let lastTime = Date.now();
   function starAnimation() {
     const now = Date.now();
     const dt = now - lastTime;
+    lastTime = now;
     for (let star of stars) {
       let centerX = 200 / 2;
       let centerY = 200 / 2;
@@ -40,7 +41,7 @@ function showEarthExplosion(entityManager, Entity) {
       star.star.style.left = centerX + velX * (star.timeAlive) + "px";
       star.star.style.top = centerY + velY * (star.timeAlive) + "px";
       star.star.style.opacity = sinPee(star.timeAlive / 10) * sinPee(star.timeAlive / 10);
-      star.timeAlive += dt * 0.005;
+      star.timeAlive += dt * 0.2;
       // console.log(centerX + velX * star.timeAlive);
       // console.log(star.timeAlive);
       if (star.timeAlive > 500) {

@@ -102,29 +102,45 @@ body {
   width: 100%;
   height: 100%;
   background: black;
-  animation: fadeIn 3s;
-  opacity: 1;
+  animation: fadeIn 13s;
+  opacity: 0;
 }
 
 @keyframes fadeIn {
   0% {
     opacity: 0;
   }
+  1% {
+    opacity: 1;
+  }
+  2% {
+    opacity: 0;
+  }
   3% {
     opacity: 1;
   }
-  9% {
+  10% {
     opacity: 0;
   }
-  10% {
+  20% {
     opacity: 1;
   }
-  30% {
-    opacity: 0;
+  50% {
+    opacity: 1;
   }
   100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut2 {
+  0% {
     opacity: 1;
   }
+  100% {
+    opacity: 0;
+  }
+
 }
 
 .rainbow-earth {
@@ -136,7 +152,7 @@ body {
   background: white;
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  animation: rainbowGlow 2s infinite, fadeIn2 10s, explodeFadeOut 10s;
+  animation: rainbowGlow 10s infinite, explodeFadeOut 10s;
   opacity: 0;
 }
 
@@ -168,6 +184,10 @@ body {
 }
 
 @keyframes explodeFadeOut {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1, 1);
+  }
   50% {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1, 1);
