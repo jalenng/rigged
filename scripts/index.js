@@ -292,4 +292,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // spawnEarth();
   // spawnSun();
+  showEarthExplosion(entityManager, Entity);
 });
