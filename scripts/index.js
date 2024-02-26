@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
             entityManager.getEntity(to).remove();
 
             spawnCookedDuck();
+            ovenSound.play();
             setTimeout(spawnToyBox, 1000);
             return true;
           }
@@ -74,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
           entityManager.getEntity(to).remove();
 
           spawnIce();
+          freezingBombSound.play();
           setTimeout(spawnOven, 1000);
           return true;
         }
@@ -109,6 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
             entityManager.getEntity(to).remove();
 
             spawnDuck();
+            toyboxSound.play();
             setTimeout(spawnBathtub, 1000);
             return true;
           }
@@ -299,8 +302,20 @@ document.addEventListener("DOMContentLoaded", function () {
             entityManager.getEntity(from).remove();
             entityManager.getEntity(to).remove();
 
+            riggedMusic.fade(0.2, 0, 10000);
+            riggedEndingMusic.play();
+            riggedEndingMusic.fade(0, 0.2, 5000);
             showEarthExplosion();
+            let rate = 1;
+            const rateChanger = setInterval(() => {
+              rate -= 0.005;
+              if (rate < 0.01) {
+                rate = 0.01;
+              }
+              riggedMusic.rate(rate);
+            }, 100);
             setTimeout(() => {
+              clearInterval(rateChanger);
               showEnding(entityManager, Entity);
             }, 7000);
             return true;

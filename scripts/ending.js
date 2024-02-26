@@ -203,6 +203,10 @@ function showEnding(entityManager, Entity) {
           entityManager.getEntity("text2").remove();
           entityManager.getEntity("continue").remove();
           ripSound.play();
+
+          riggedMusic.fade(0, 0.2, 1);
+          riggedMusic.rate(1);
+          riggedEndingMusic.fade(0.2, 0, 1);
         }
       })
     );
