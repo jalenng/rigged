@@ -1,5 +1,5 @@
 class Entity {
-  constructor(name, image = "Bomb.png", pos = { x: 0, y: 0 }, onDrop) {
+  constructor(name, image = "Bomb.png", pos = { x: 0, y: 0, width: null }, onDrop) {
     // create elem
     const elem = document.createElement("div");
     this.elem = elem;
@@ -7,6 +7,10 @@ class Entity {
     if (typeof image === "string") {
       const imgElem = document.createElement("img");
       imgElem.src = `./images/${image}`;
+      if (pos.width) {
+      imgElem.style.width = pos.width + "px";
+      imgElem.style.maxWidth = pos.width + "px";
+      }
       elem.appendChild(imgElem);
     } else {
       elem.appendChild(image);

@@ -225,13 +225,13 @@ document.addEventListener("DOMContentLoaded", function () {
             entityManager.getEntity(from).remove();
             boatContains.push(from);
             const nameToOverlayImageMap = {
-              "cabbage": "cabbageOnBoat.png",
-              "goat": "goatOnBoat.png",
-              "wolf": "wolfOnBoat.png",
-            }
+              cabbage: "cabbageOnBoat.png",
+              goat: "goatOnBoat.png",
+              wolf: "wolfOnBoat.png",
+            };
             const overlayImage = nameToOverlayImageMap[from];
             if (overlayImage) {
-              entityManager.getEntity(to).addOverlayImage(overlayImage)
+              entityManager.getEntity(to).addOverlayImage(overlayImage);
             }
           }
           // check if boat has everything needed
@@ -279,8 +279,9 @@ document.addEventListener("DOMContentLoaded", function () {
         "sun",
         "sun.png",
         {
-          x: 310,
-          y: 190,
+          x: 210,
+          y: 100,
+          width: 300,
         },
         ({ from, to }) => {
           console.log(from);
@@ -288,7 +289,10 @@ document.addEventListener("DOMContentLoaded", function () {
             entityManager.getEntity(from).remove();
             entityManager.getEntity(to).remove();
 
-            showEnding(entityManager, Entity);
+            showEarthExplosion();
+            setTimeout(() => {
+              showEnding(entityManager, Entity);
+            }, 7000);
           }
         }
       )
