@@ -14,6 +14,9 @@ body {
   overflow: hidden;
 }
 .draggable {
+  animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation-name: scale-in;
+  animation-duration: 0.5s;
   /* border: 1px solid red; */
   position: absolute;
   padding: 16px;
@@ -29,6 +32,24 @@ body {
   /* pointer-events: none; */
   opacity: 0.2;
 }
+
+@keyframes scale-in {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.wiggly {
+  font-size: 2rem;
+  display: inline-block;
+  animation: wigglyAnim 0.5s infinite;
+}
+
 @keyframes wigglyAnim {
   0% {
     transform: translate(5%, 5%) rotate(0deg);
@@ -45,10 +66,4 @@ body {
   100% {
     transform: translate(2%, 1%) rotate(0deg);
   }
-}
-
-.wiggly {
-  font-size: 2rem;
-  display: inline-block;
-  animation: wigglyAnim 0.5s infinite;
 }
