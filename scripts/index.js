@@ -21,11 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
             entityManager.getEntity(to).remove();
             ripSound.play();
 
-            // show fire extinguisher after delay
+            spawnBomb();
             setTimeout(spawnFireExtinguisher, 1000);
-
-            // show bomb
-            spawnBomb()
           }
         }
       )
@@ -55,8 +52,8 @@ document.addEventListener("DOMContentLoaded", function () {
             entityManager.getEntity(from).remove();
             entityManager.getEntity(to).remove();
 
-            // show cooked duck
             spawnCookedDuck();
+            setTimeout(spawnToyBox, 1000);
           }
         }
       )
@@ -71,11 +68,8 @@ document.addEventListener("DOMContentLoaded", function () {
           entityManager.getEntity(from).remove();
           entityManager.getEntity(to).remove();
 
-          // show oven after delay
-          setTimeout(spawnOven, 1000);
-
-          // show ice
           spawnIce();
+          setTimeout(spawnOven, 1000);
         }
       })
     );
@@ -90,6 +84,90 @@ document.addEventListener("DOMContentLoaded", function () {
       new Entity("cookedDuck", "cookedDuck.png", {
         x: 420,
         y: 69,
+      })
+    );
+  }
+
+  function spawnToyBox() {
+    entityManager.add(
+      new Entity(
+        "toybox",
+        "toybox.png",
+        {
+          x: 483,
+          y: 333,
+        },
+        ({ from, to }) => {
+          if (from === "cookedDuck") {
+            entityManager.getEntity(from).remove();
+            entityManager.getEntity(to).remove();
+
+            spawnDuck();
+            setTimeout(spawnBathtub, 1000);
+          }
+        }
+      )
+    );
+  }
+
+  function spawnDuck() {
+    entityManager.add(
+      new Entity(
+        "duck",
+        "duck.png",
+        {
+          x: 483,
+          y: 333,
+        },
+        ({ from, to }) => {
+          if (from === "cookedDuck") {
+            entityManager.getEntity(from).remove();
+            entityManager.getEntity(to).remove();
+
+            spawnDuck();
+            setTimeout(spawnNest, 1000);
+          }
+        }
+      )
+    );
+  }
+
+  function spawnBathtub() {
+    const bathTubPos = 
+    entityManager.add(
+      new Entity(
+        "bathtub",
+        "bathtub.png",
+        {
+          x: 283,
+          y: 333,
+        },
+        ({ from, to }) => {
+          if (from === "duck") {
+            entityManager.getEntity(from).remove();
+            entityManager.getEntity(to).remove();
+
+            setTimeout(spawnNest, 1000);
+          }
+        }
+      )
+    );
+  }
+
+  function spawnEgg() {
+    entityManager.add(
+      new Entity("egg", "egg.png", {
+        x: 283,
+        y: 333,
+      })
+    );
+  }
+
+  function spawnNest() {
+    entityManager.add(
+      new Entity("nest", "nest.png", {
+        x: 411,
+        y: 92,
       })
     );
   }
