@@ -165,6 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
             entityManager.getEntity(to).remove();
 
             spawnEgg();
+            nestSound.play();
             setTimeout(spawnNest, 1000);
             setTimeout(spawnDuckNoFuse, 2000); // useless item
             showBackgroundImage("./images/forest.png");
@@ -375,4 +376,5 @@ document.addEventListener("DOMContentLoaded", function () {
   // spawnEarth();
   // spawnSun();
   // showEarthExplosion(entityManager, Entity);
+  // showEnding(entityManager, Entity);
 });

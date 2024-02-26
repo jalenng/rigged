@@ -255,3 +255,43 @@ body {
   background-size: cover;
   opacity: 0.1;
 }
+
+.duck-egg {
+  position: absolute;
+  top: 200px;
+  left: 280px;
+  background: url("./images/egg.png");
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+}
+
+.egg-left {
+  position: absolute;
+  top: 200px;
+  left: 280px;
+  background: url("./images/leftEggHalf.png");
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+}
+
+.egg-right {
+  position: absolute;
+  top: 200px;
+  left: 280px;
+  background: url("./images/rightEggHalf.png");
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+}
+
+.bird {
+  position: absolute;
+  top: 230px;
+  left: 300px;
+  background: url("./images/duckNoFuse.png");
+  background-size: cover;
+  width: 150px;
+  height: 150px;
+}

@@ -46,13 +46,12 @@ function showEnding(entityManager, Entity) {
         if (from === "continue") {
           entityManager.getEntity("text1").remove();
           entityManager.getEntity("continue").remove();
-          createText3();
+          createText2();
           ripSound.play();
         }
       })
     );
   };
-  createText1();
 
   const createText2 = () => {
     const wiggly = createWigglyTextDiv(
@@ -164,10 +163,14 @@ function showEnding(entityManager, Entity) {
       "Did you know the bomb was always going to explode?",
       () => {
         entityManager.add(
-          new Entity("continue", createContinueButton("continue"), {
-            x: 400,
-            y: 300,
-          })
+          new Entity(
+            "continue",
+            createContinueButton("It was always rigged."),
+            {
+              x: 400,
+              y: 300,
+            }
+          )
         );
       }
     );
@@ -207,10 +210,16 @@ function showEnding(entityManager, Entity) {
           riggedMusic.fade(0, 0.2, 1);
           riggedMusic.rate(1);
           riggedEndingMusic.fade(0.2, 0, 1);
+          showDuckHatch();
+
+          return true;
         }
       })
     );
   };
+
+  // createText1();
+  createText7();
 }
 
 // showEnding();

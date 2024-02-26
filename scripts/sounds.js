@@ -34,6 +34,11 @@ const toyboxSound = new Howl({
   volume: 0.5,
 });
 
+const nestSound = new Howl({
+  src: ["./sounds/nest.mp3"],
+  volume: 0.5,
+});
+
 // setInterval(() => {
 // riggedMusic.play();
 // riggedMusic.rate(Math.sin(Date.now()) * 0.5 + 1);
