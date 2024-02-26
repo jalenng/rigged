@@ -28,9 +28,12 @@ document.addEventListener("DOMContentLoaded", function () {
             // start earthquake
             document.querySelector(".game-area").classList.add("shake");
 
+            bombSound.play();
             spawnBomb();
             setTimeout(spawnFireExtinguisher, 1000);
             showBackgroundImage("./images/livingroom.png");
+
+            // document.querySelector(".game-area").appendChild();
             return true;
           }
         }

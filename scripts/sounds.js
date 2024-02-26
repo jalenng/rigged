@@ -74,6 +74,11 @@ const explosionSound = new Howl({
   volume: 0.9,
 });
 
+const bombSound = new Howl({
+  src: ["./sounds/bomb.mp3"],
+  volume: 0.5,
+});
+
 // setInterval(() => {
 // riggedMusic.play();
 // riggedMusic.rate(Math.sin(Date.now()) * 0.5 + 1);
