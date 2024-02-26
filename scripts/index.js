@@ -165,9 +165,9 @@ document.addEventListener("DOMContentLoaded", function () {
             entityManager.getEntity(to).remove();
 
             spawnEgg();
-            nestSound.play();
             setTimeout(spawnNest, 1000);
             setTimeout(spawnDuckNoFuse, 2000); // useless item
+            tubSound.play();
             showBackgroundImage("./images/forest.png");
             return true;
           }
@@ -198,6 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
           setTimeout(spawnWolf, 500);
           setTimeout(spawnIsland, 750);
           setTimeout(spawnBoat, 1000);
+          nestSound.play();
           showBackgroundImage("./images/ocean.png");
           return true;
         }
@@ -256,6 +257,14 @@ document.addEventListener("DOMContentLoaded", function () {
               entityManager.getEntity(to).addOverlayImage(overlayImage);
             }
 
+            if (from === "cabbage") {
+              cabbageSound.play();
+            } else if (from === "goat") {
+              goatSound.play();
+            } else if (from === "wolf") {
+              wolfSound.play();
+            }
+
             // check if boat has everything needed
             if (allowedBoatItems.every((item) => boatContains.includes(item))) {
               boatContainsEverything = true;
@@ -283,6 +292,7 @@ document.addEventListener("DOMContentLoaded", function () {
             spawnEarth();
             setTimeout(spawnSun, 1000);
             showBackgroundImage("");
+            boatSound.play();
             return true;
           }
         }
@@ -319,6 +329,7 @@ document.addEventListener("DOMContentLoaded", function () {
             riggedEndingMusic.play();
             riggedEndingMusic.fade(0, 0.2, 5000);
             showEarthExplosion();
+            explosionSound.play();
             let rate = 1;
             const rateChanger = setInterval(() => {
               rate -= 0.005;

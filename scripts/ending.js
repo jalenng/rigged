@@ -48,6 +48,8 @@ function showEnding(entityManager, Entity) {
           entityManager.getEntity("continue").remove();
           createText2();
           ripSound.play();
+
+          return true;
         }
       })
     );
@@ -71,6 +73,8 @@ function showEnding(entityManager, Entity) {
           entityManager.getEntity("continue").remove();
           createText3();
           ripSound.play();
+
+          return true;
         }
       })
     );
@@ -98,6 +102,8 @@ function showEnding(entityManager, Entity) {
           entityManager.getEntity("continue").remove();
           createText4();
           ripSound.play();
+
+          return true;
         }
       })
     );
@@ -125,6 +131,8 @@ function showEnding(entityManager, Entity) {
           entityManager.getEntity("continue").remove();
           createText5();
           ripSound.play();
+
+          return true;
         }
       })
     );
@@ -151,6 +159,8 @@ function showEnding(entityManager, Entity) {
           entityManager.getEntity("continue").remove();
           createText6();
           ripSound.play();
+
+          return true;
         }
       })
     );
@@ -181,6 +191,8 @@ function showEnding(entityManager, Entity) {
           entityManager.getEntity("continue").remove();
           createText7();
           ripSound.play();
+
+          return true;
         }
       })
     );
@@ -218,8 +230,8 @@ function showEnding(entityManager, Entity) {
     );
   };
 
-  // createText1();
-  createText7();
+  createText1();
+  // createText7();
 }
 
 // showEnding();

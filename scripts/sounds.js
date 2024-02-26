@@ -39,6 +39,41 @@ const nestSound = new Howl({
   volume: 0.5,
 });
 
+const tubSound = new Howl({
+  src: ["./sounds/tub.mp3"],
+  volume: 0.5,
+});
+
+const cabbageSound = new Howl({
+  src: ["./sounds/cabbage.mp3"],
+  volume: 0.5,
+});
+
+const goatSound = new Howl({
+  src: ["./sounds/goat_cut.mp3"],
+  volume: 0.5,
+});
+
+const wolfSound = new Howl({
+  src: ["./sounds/wolf_cut.mp3"],
+  volume: 0.5,
+});
+
+const boatSound = new Howl({
+  src: ["./sounds/boat.mp3"],
+  volume: 0.5,
+});
+
+const crackSound = new Howl({
+  src: ["./sounds/crack.mp3"],
+  volume: 0.5,
+});
+
+const explosionSound = new Howl({
+  src: ["./sounds/explosion.mp3"],
+  volume: 0.9,
+});
+
 // setInterval(() => {
 // riggedMusic.play();
 // riggedMusic.rate(Math.sin(Date.now()) * 0.5 + 1);

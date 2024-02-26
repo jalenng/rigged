@@ -44,6 +44,7 @@ function showDuckHatch() {
         bird = document.createElement("div");
         bird.className = "bird";
         document.querySelector(".game-area").appendChild(bird);
+        crackSound.play();
       } else {
         duckEggHalfRotate += -0.25 * dt;
         duckEggHalfVelY -= 0.005 * dt;
