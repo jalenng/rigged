@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log(entityManager.getEntity("package"));
             entityManager.getEntity(from).remove();
             entityManager.getEntity(to).remove();
+            entityManager.getEntity("rock").remove(); // useless item
             ripSound.play();
 
             spawnBomb();
@@ -56,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
           if (from === "ice") {
             entityManager.getEntity(from).remove();
             entityManager.getEntity(to).remove();
+            entityManager.getEntity("pie").remove(); // useless item
 
             spawnCookedDuck();
             ovenSound.play();
@@ -77,8 +79,9 @@ document.addEventListener("DOMContentLoaded", function () {
           entityManager.getEntity(to).remove();
 
           spawnIce();
+          setTimeout(spawnPie, 1000); // useless item
+          setTimeout(spawnOven, 2000);
           freezingBombSound.play();
-          setTimeout(spawnOven, 1000);
           showBackgroundImage("./images/bathroom.png");
           return true;
         }
@@ -163,6 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             spawnEgg();
             setTimeout(spawnNest, 1000);
+            setTimeout(spawnDuckNoFuse, 2000); // useless item
             showBackgroundImage("./images/forest.png");
             return true;
           }
@@ -186,6 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (from === "egg") {
           entityManager.getEntity(from).remove();
           entityManager.getEntity(to).remove();
+          entityManager.getEntity("duckNoFuse").remove(); // useless item
 
           setTimeout(spawnCabbage);
           setTimeout(spawnGoat, 250);
@@ -332,9 +337,38 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   }
 
+  // here begins the functions for spawning the useless things...
+  function spawnRock() {
+    entityManager.add(
+      new Entity("rock", "rock.png", {
+        x: 600,
+        y: 66,
+      })
+    );
+  }
+
+  function spawnPie() {
+    entityManager.add(
+      new Entity("pie", "pie.png", {
+        x: 100,
+        y: 190,
+      })
+    );
+  }
+
+  function spawnDuckNoFuse() {
+    entityManager.add(
+      new Entity("duckNoFuse", "duckNoFuse.png", {
+        x: 93,
+        y: 100,
+      })
+    );
+  }
+
   // START
-  setTimeout(spawnScissors, 1000);
   spawnPackage();
+  setTimeout(spawnRock, 1000); // useless item
+  setTimeout(spawnScissors, 2000);
 
   // spawnEgg();
   // spawnNest();
