@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function spawnIce() {
-    entityManager.add(new Entity("ice", "Ice.png", { x: 300, y: 180 }));
+    entityManager.add(new Entity("ice", "ice.png", { x: 300, y: 180 }));
   }
 
   function spawnCookedDuck() {
