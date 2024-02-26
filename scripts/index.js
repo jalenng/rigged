@@ -1,5 +1,8 @@
 // Your JavaScript code goes here
 document.addEventListener("DOMContentLoaded", function () {
+  let boatContains = [];
+  let boatContainsEverything = false;
+
   const entityManager = new EntityManager();
 
   function spawnScissors() {
@@ -133,8 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function spawnBathtub() {
-    const bathTubPos = 
-    entityManager.add(
+    const bathTubPos = entityManager.add(
       new Entity(
         "bathtub",
         "bathtub.png",
@@ -146,8 +148,8 @@ document.addEventListener("DOMContentLoaded", function () {
           if (from === "duck") {
             entityManager.getEntity(from).remove();
             entityManager.getEntity(to).remove();
-            
-            spawnEgg()
+
+            spawnEgg();
             setTimeout(spawnNest, 1000);
           }
         }
@@ -166,14 +168,123 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function spawnNest() {
     entityManager.add(
-      new Entity("nest", "nest.png", {
-        x: 411,
-        y: 92,
+      new Entity("nest", "nest.png", { x: 100, y: 190 }, ({ from, to }) => {
+        if (from === "egg") {
+          entityManager.getEntity(from).remove();
+          entityManager.getEntity(to).remove();
+
+          setTimeout(spawnCabbage);
+          setTimeout(spawnGoat, 250);
+          setTimeout(spawnWolf, 500);
+          setTimeout(spawnIsland, 750);
+          setTimeout(spawnBoat, 1000);
+        }
       })
     );
   }
 
+  function spawnCabbage() {
+    entityManager.add(
+      new Entity("cabbage", "cabbage.png", {
+        x: 100,
+        y: 90,
+      })
+    );
+  }
+
+  function spawnGoat() {
+    entityManager.add(
+      new Entity("goat", "goat.png", {
+        x: 100,
+        y: 190,
+      })
+    );
+  }
+
+  function spawnWolf() {
+    entityManager.add(
+      new Entity("wolf", "wolf.png", {
+        x: 100,
+        y: 290,
+      })
+    );
+  }
+
+  function spawnBoat() {
+    entityManager.add(
+      new Entity(
+        "boat",
+        "boat.png",
+        {
+          x: 200,
+          y: 190,
+        },
+        ({ from, to }) => {
+          const allowedBoatItems = ["cabbage", "goat", "wolf"];
+          if (allowedBoatItems.includes(from)) {
+            entityManager.getEntity(from).remove();
+            boatContains.push(from);
+          }
+          // check if boat has everything needed
+          if (allowedBoatItems.every((item) => boatContains.includes(item))) {
+            boatContainsEverything = true;
+          }
+        }
+      )
+    );
+  }
+
+  function spawnIsland() {
+    entityManager.add(
+      new Entity(
+        "island",
+        "island.png",
+        {
+          x: 520,
+          y: 190,
+        },
+        ({ from, to }) => {
+          if (from === "boat" && boatContainsEverything) {
+            entityManager.getEntity(from).remove();
+            entityManager.getEntity(to).remove();
+            spawnEarth();
+            setTimeout(spawnSun, 1000);
+          }
+        }
+      )
+    );
+  }
+
+  function spawnEarth() {
+    entityManager.add(
+      new Entity("earth", "earth.png", {
+        x: 520,
+        y: 190,
+      })
+    );
+  }
+
+  function spawnSun() {
+    entityManager.add(
+      new Entity("sun", "sun.png", {
+        x: 310,
+        y: 190,
+      }),
+      ({ from, to }) => {
+        if (from === "earth") {
+          entityManager.getEntity(from).remove();
+          entityManager.getEntity(to).remove();
+
+          showEnding(entityManager, Entity);
+        }
+      }
+    );
+  }
+
   // START
-  setTimeout(spawnScissors, 1000);
-  spawnPackage();
+  // setTimeout(spawnScissors, 1000);
+  // spawnPackage();
+
+  spawnEgg();
+  spawnNest();
 });
