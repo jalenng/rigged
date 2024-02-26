@@ -146,7 +146,8 @@ document.addEventListener("DOMContentLoaded", function () {
           if (from === "duck") {
             entityManager.getEntity(from).remove();
             entityManager.getEntity(to).remove();
-
+            
+            spawnEgg()
             setTimeout(spawnNest, 1000);
           }
         }
