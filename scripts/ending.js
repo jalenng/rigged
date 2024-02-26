@@ -29,4 +29,12 @@ function showEnding() {
   document.body.appendChild(wiggly);
 }
 
+function createWigglyTextDiv(width, height, text) {
+  const wiggly = document.createElement("div");
+  wiggly.style.width = `${width}px`;
+  wiggly.style.height = `${height}px`;
+  showWigglyText(wiggly, text);
+  return wiggly;
+}
+
 // showEnding();

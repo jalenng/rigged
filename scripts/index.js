@@ -15,4 +15,15 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     })
   );
+
+  const wiggly = createWigglyTextDiv(120, 120, "Why did you do   that?");
+  entityManager.add(new Entity("text1", wiggly, { x: 200, y: 200 }, ({ from }) => {
+    if (from === "scissors") {
+      console.log(entityManager.getEntity("package"));
+      entityManager.getEntity("text1").remove();
+      entityManager.getEntity("scissors").remove();
+      entityManager.add(new Entity("bomb", "Bomb.png", { x: 210, y: 210 }));
+      ripSound.play();
+    }
+  }));
 });

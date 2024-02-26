@@ -4,9 +4,14 @@ class Entity {
     const elem = document.createElement("div");
     this.elem = elem;
 
-    const imgElem = document.createElement("img");
-    imgElem.src = `./images/${image}`;
-    elem.appendChild(imgElem);
+    if (typeof image === "string") {
+      const imgElem = document.createElement("img");
+      imgElem.src = `./images/${image}`;
+      elem.appendChild(imgElem);
+    } else {
+      elem.appendChild(image);
+    }
+
     elem.classList.add("draggable");
     elem.classList.add("droppable");
 
