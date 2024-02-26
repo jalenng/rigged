@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             spawnBomb();
             setTimeout(spawnFireExtinguisher, 1000);
+            showBackgroundImage("./images/livingroom.png");
             return true;
           }
         }
@@ -59,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
             spawnCookedDuck();
             ovenSound.play();
             setTimeout(spawnToyBox, 1000);
+            showBackgroundImage("./images/toyroom.png");
             return true;
           }
         }
@@ -77,6 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
           spawnIce();
           freezingBombSound.play();
           setTimeout(spawnOven, 1000);
+          showBackgroundImage("./images/bathroom.png");
           return true;
         }
       })
@@ -113,6 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
             spawnDuck();
             toyboxSound.play();
             setTimeout(spawnBathtub, 1000);
+            showBackgroundImage("./images/bathroom.png");
             return true;
           }
         }
@@ -159,6 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             spawnEgg();
             setTimeout(spawnNest, 1000);
+            showBackgroundImage("./images/forest.png");
             return true;
           }
         }
@@ -187,6 +192,7 @@ document.addEventListener("DOMContentLoaded", function () {
           setTimeout(spawnWolf, 500);
           setTimeout(spawnIsland, 750);
           setTimeout(spawnBoat, 1000);
+          showBackgroundImage("./images/ocean.png");
           return true;
         }
       })
@@ -270,6 +276,7 @@ document.addEventListener("DOMContentLoaded", function () {
             entityManager.getEntity(to).remove();
             spawnEarth();
             setTimeout(spawnSun, 1000);
+            showBackgroundImage("");
             return true;
           }
         }
