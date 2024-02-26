@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const entityManager = new EntityManager();
 
   function spawnScissors() {
-    entityManager.add(new Entity("scissors", "scissors.png", { x: 10, y: 10 }));
+    entityManager.add(new Entity("scissors", "scissors.png", { x: 60, y: 20 }));
   }
 
   function spawnPackage() {
@@ -367,9 +367,15 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // START
-  spawnPackage();
-  setTimeout(spawnRock, 1000); // useless item
-  setTimeout(spawnScissors, 2000);
+  function startLevel() {
+    spawnPackage();
+    setTimeout(spawnRock, 1000); // useless item
+    setTimeout(spawnScissors, 2000);
+  }
+
+  showBackgroundImage("./images/title.png", 1);
+  setTimeout(() => showBackgroundImage(""), 3000);
+  setTimeout(startLevel, 4000);
 
   // spawnEgg();
   // spawnNest();

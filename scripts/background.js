@@ -7,9 +7,11 @@ document.addEventListener("DOMContentLoaded", function () {
 let backgroundQueued = "";
 let backgroundDirection = "fade-in";
 let backgroundOpacity = 1;
-function showBackgroundImage(url) {
+let maxOpacity = 0.2;
+function showBackgroundImage(url, opacity = 0.2) {
   backgroundDirection = "fade-out";
   backgroundQueued = url;
+  maxOpacity = opacity;
 }
 let lastTime = Date.now();
 function backgroundTransitionAnimation() {
@@ -29,7 +31,7 @@ function backgroundTransitionAnimation() {
       background.style.backgroundImage = `url(${backgroundQueued})`;
     }
   }
-  background.style.opacity = backgroundOpacity * 0.2;
+  background.style.opacity = backgroundOpacity * maxOpacity;
   requestAnimationFrame(backgroundTransitionAnimation);
 }
 backgroundTransitionAnimation();
