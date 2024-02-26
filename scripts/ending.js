@@ -1,4 +1,4 @@
-function showWigglyText(div, text) {
+function showWigglyText(div, text, wigglyDoneCb) {
   // Shows wiggly text inside of a div.
   const characters = text.split("");
   console.log(characters);
@@ -14,27 +14,199 @@ function showWigglyText(div, text) {
     div.appendChild(charSpan);
     if (characters.length === 0) {
       clearInterval(interval);
+      wigglyDoneCb();
     }
-  }, 100);
+  }, 50);
 }
 
-function showEnding() {
-  const wiggly = document.createElement("div");
-  showWigglyText(wiggly, "Why did you do   that?");
-  wiggly.style.position = "absolute";
-  wiggly.style.top = "200px";
-  wiggly.style.left = "400px";
-  wiggly.style.width = "120px";
-  wiggly.style.zIndex = 1000;
-  document.body.appendChild(wiggly);
-}
-
-function createWigglyTextDiv(width, height, text) {
+function createWigglyTextDiv(width, height, text, wigglyDoneCb) {
   const wiggly = document.createElement("div");
   wiggly.style.width = `${width}px`;
   wiggly.style.height = `${height}px`;
-  showWigglyText(wiggly, text);
+  showWigglyText(wiggly, text, wigglyDoneCb);
   return wiggly;
+}
+
+function createContinueButton(text) {
+  const continueButton = document.createElement("div");
+  continueButton.innerText = text || "continue";
+  continueButton.className = "continue-button";
+  return continueButton;
+}
+
+function showEnding(entityManager, Entity) {
+  const createText1 = () => {
+    const wiggly = createWigglyTextDiv(250, 120, "Why did you do that?", () => {
+      entityManager.add(
+        new Entity("continue", createContinueButton(), { x: 400, y: 300 })
+      );
+    });
+    entityManager.add(
+      new Entity("text1", wiggly, { x: 200, y: 200 }, ({ from }) => {
+        if (from === "continue") {
+          entityManager.getEntity("text1").remove();
+          entityManager.getEntity("continue").remove();
+          createText3();
+          ripSound.play();
+        }
+      })
+    );
+  };
+  createText1();
+
+  const createText2 = () => {
+    const wiggly = createWigglyTextDiv(
+      400,
+      120,
+      "What was the point to all this?",
+      () => {
+        entityManager.add(
+          new Entity("continue", createContinueButton(), { x: 400, y: 300 })
+        );
+      }
+    );
+    entityManager.add(
+      new Entity("text2", wiggly, { x: 150, y: 200 }, ({ from }) => {
+        if (from === "continue") {
+          entityManager.getEntity("text2").remove();
+          entityManager.getEntity("continue").remove();
+          createText3();
+          ripSound.play();
+        }
+      })
+    );
+  };
+
+  const createText3 = () => {
+    const wiggly = createWigglyTextDiv(
+      400,
+      120,
+      "You spent your entire life putting things together, mixing things.",
+      () => {
+        entityManager.add(
+          new Entity(
+            "continue",
+            createContinueButton("You spent your life defusing a bomb."),
+            { x: 150, y: 300 }
+          )
+        );
+      }
+    );
+    entityManager.add(
+      new Entity("text2", wiggly, { x: 150, y: 200 }, ({ from }) => {
+        if (from === "continue") {
+          entityManager.getEntity("text2").remove();
+          entityManager.getEntity("continue").remove();
+          createText4();
+          ripSound.play();
+        }
+      })
+    );
+  };
+
+  const createText4 = () => {
+    const wiggly = createWigglyTextDiv(
+      400,
+      120,
+      "Look at you, mister bomb defuser",
+      () => {
+        entityManager.add(
+          new Entity(
+            "continue",
+            createContinueButton("You know your cousin's a doctor right?"),
+            { x: 150, y: 300 }
+          )
+        );
+      }
+    );
+    entityManager.add(
+      new Entity("text2", wiggly, { x: 50, y: 150 }, ({ from }) => {
+        if (from === "continue") {
+          entityManager.getEntity("text2").remove();
+          entityManager.getEntity("continue").remove();
+          createText5();
+          ripSound.play();
+        }
+      })
+    );
+  };
+
+  const createText5 = () => {
+    const wiggly = createWigglyTextDiv(
+      400,
+      120,
+      "How much money is he making?",
+      () => {
+        entityManager.add(
+          new Entity("continue", createContinueButton("Uhm.. What?"), {
+            x: 400,
+            y: 300,
+          })
+        );
+      }
+    );
+    entityManager.add(
+      new Entity("text2", wiggly, { x: 150, y: 200 }, ({ from }) => {
+        if (from === "continue") {
+          entityManager.getEntity("text2").remove();
+          entityManager.getEntity("continue").remove();
+          createText6();
+          ripSound.play();
+        }
+      })
+    );
+  };
+
+  const createText6 = () => {
+    const wiggly = createWigglyTextDiv(
+      400,
+      120,
+      "Did you know the bomb was always going to explode?",
+      () => {
+        entityManager.add(
+          new Entity("continue", createContinueButton("continue"), {
+            x: 400,
+            y: 300,
+          })
+        );
+      }
+    );
+    entityManager.add(
+      new Entity("text2", wiggly, { x: 150, y: 200 }, ({ from }) => {
+        if (from === "continue") {
+          entityManager.getEntity("text2").remove();
+          entityManager.getEntity("continue").remove();
+          createText7();
+          ripSound.play();
+        }
+      })
+    );
+  };
+
+  const createText7 = () => {
+    const wiggly = createWigglyTextDiv(
+      400,
+      120,
+      "Would you have done things",
+      () => {
+        entityManager.add(
+          new Entity("continue", createContinueButton("differently?"), {
+            x: 400,
+            y: 300,
+          })
+        );
+      }
+    );
+    entityManager.add(
+      new Entity("text2", wiggly, { x: 150, y: 200 }, ({ from }) => {
+        if (from === "continue") {
+          entityManager.getEntity("text2").remove();
+          entityManager.getEntity("continue").remove();
+          ripSound.play();
+        }
+      })
+    );
+  };
 }
 
 // showEnding();

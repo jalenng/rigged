@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap");
+
 body {
   display: flex;
   align-items: center;
@@ -65,5 +67,33 @@ body {
   }
   100% {
     transform: translate(2%, 1%) rotate(0deg);
+  }
+}
+
+.wiggly {
+  font-size: 2rem;
+  font-family: "Annie Use Your Telescope", cursive;
+  display: inline-block;
+  animation: wigglyAnim 0.5s infinite;
+}
+
+.continue-button {
+  font-size: 2em;
+  font-family: "Annie Use Your Telescope", cursive;
+  color: white;
+  background: black;
+  padding: 5px 15px;
+  border-radius: 6px;
+  animation: pulseAnim 0.5s infinite;
+}
+@keyframes pulseAnim {
+  0% {
+    background: black;
+  }
+  50% {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  100% {
+    background: black;
   }
 }
