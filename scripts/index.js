@@ -25,6 +25,9 @@ document.addEventListener("DOMContentLoaded", function () {
             entityManager.getEntity("rock").remove(); // useless item
             ripSound.play();
 
+            // start earthquake
+            document.querySelector(".game-area").classList.add("shake");
+
             spawnBomb();
             setTimeout(spawnFireExtinguisher, 1000);
             showBackgroundImage("./images/livingroom.png");
@@ -116,9 +119,9 @@ document.addEventListener("DOMContentLoaded", function () {
             entityManager.getEntity(from).remove();
             entityManager.getEntity(to).remove();
 
-            spawnDuck();
+            spawnBathtub();
             toyboxSound.play();
-            setTimeout(spawnBathtub, 1000);
+            setTimeout(spawnDuck, 1000);
             showBackgroundImage("./images/bathroom.png");
             return true;
           }

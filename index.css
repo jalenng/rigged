@@ -8,6 +8,8 @@ body {
   height: 100vh;
   margin: 0;
   background-color: black;
+  user-select: none;
+  -webkit-user-select: none;
 }
 .game-area {
   position: relative;
@@ -15,6 +17,9 @@ body {
   height: 480px;
   background-color: white;
   overflow: hidden;
+}
+.game-area.shake {
+  animation: earthquake 0.5s infinite;
 }
 .draggable {
   /* border: 1px solid red; */
@@ -88,6 +93,23 @@ body {
   }
   100% {
     transform: translate(2%, 1%) rotate(0deg);
+  }
+}
+@keyframes earthquake {
+  0% {
+    transform: translate(2px, 2px) 
+  }
+  25% {
+    transform: translate(0, 2px)
+  }
+  50% {
+    transform: translate(2px, 0) 
+  }
+  75% {
+    transform: translate(0%, 0%) 
+  }
+  100% {
+    transform: translate(0.2px, 0.2px) 
   }
 }
 
