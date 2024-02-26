@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
         entityManager.getEntity("package").remove();
         entityManager.getEntity("scissors").remove();
         entityManager.add(new Entity("bomb", "Bomb.png", { x: 210, y: 210 }));
+        ripSound.play();
       }
     })
   );

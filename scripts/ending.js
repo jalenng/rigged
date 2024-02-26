@@ -29,4 +29,4 @@ function showEnding() {
   document.body.appendChild(wiggly);
 }
 
-showEnding();
+// showEnding();
