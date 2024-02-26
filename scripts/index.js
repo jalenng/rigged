@@ -266,25 +266,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function spawnSun() {
     entityManager.add(
-      new Entity("sun", "sun.png", {
-        x: 310,
-        y: 190,
-      }),
-      ({ from, to }) => {
-        if (from === "earth") {
-          entityManager.getEntity(from).remove();
-          entityManager.getEntity(to).remove();
+      new Entity(
+        "sun",
+        "sun.png",
+        {
+          x: 310,
+          y: 190,
+        },
+        ({ from, to }) => {
+          console.log(from);
+          if (from === "earth") {
+            entityManager.getEntity(from).remove();
+            entityManager.getEntity(to).remove();
 
-          showEnding(entityManager, Entity);
+            showEnding(entityManager, Entity);
+          }
         }
-      }
+      )
     );
   }
 
   // START
-  // setTimeout(spawnScissors, 1000);
-  // spawnPackage();
+  setTimeout(spawnScissors, 1000);
+  spawnPackage();
 
-  spawnEgg();
-  spawnNest();
+  // spawnEarth();
+  // spawnSun();
 });
