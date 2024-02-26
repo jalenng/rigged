@@ -172,9 +172,9 @@ document.addEventListener("DOMContentLoaded", function () {
             entityManager.getEntity(from).remove();
             entityManager.getEntity(to).remove();
 
-            spawnEgg();
+            spawnDuckNoFuse();// useless item
             setTimeout(spawnNest, 1000);
-            setTimeout(spawnDuckNoFuse, 2000); // useless item
+            setTimeout(spawnEgg, 2000); 
             tubSound.play();
             showBackgroundImage("./images/forest.png");
             return true;
