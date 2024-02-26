@@ -155,7 +155,6 @@ body {
   100% {
     opacity: 0;
   }
-
 }
 
 .rainbow-earth {
@@ -240,4 +239,13 @@ body {
   100% {
     opacity: 0;
   }
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-size: cover;
+  opacity: 0.1;
 }
