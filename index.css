@@ -97,19 +97,19 @@ body {
 }
 @keyframes earthquake {
   0% {
-    transform: translate(2px, 2px) 
+    transform: translate(2px, 2px);
   }
   25% {
-    transform: translate(0, 2px)
+    transform: translate(0, 2px);
   }
   50% {
-    transform: translate(2px, 0) 
+    transform: translate(2px, 0);
   }
   75% {
-    transform: translate(0%, 0%) 
+    transform: translate(0%, 0%);
   }
   100% {
-    transform: translate(0.2px, 0.2px) 
+    transform: translate(0.2px, 0.2px);
   }
 }
 
@@ -317,4 +317,40 @@ body {
   background-size: cover;
   width: 150px;
   height: 150px;
+}
+
+.exclamation {
+  position: absolute;
+  top: 0px;
+  left: 200px;
+  width: 220px;
+  height: 300px;
+  background: url("./images/exclamationPoints.png");
+  background-size: cover;
+  pointer-events: none;
+  animation: popUp 5s;
+  opacity: 0;
+}
+
+@keyframes popUp {
+  0% {
+    transform: translate(0, 0) scale(0, 0);
+    opacity: 0;
+  }
+  20% {
+    transform: translate(0, -20px) scale(1, 1);
+    opacity: 1;
+  }
+  30% {
+    transform: translate(0, 0) scale(1, 1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(0, 0) scale(1, 1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, 0) scale(1, 1);
+    opacity: 0;
+  }
 }
