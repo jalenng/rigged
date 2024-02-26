@@ -384,14 +384,14 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(spawnScissors, 2000);
   }
 
-  showBackgroundImage("./images/title.png", 1);
-  setTimeout(() => showBackgroundImage(""), 3000);
-  setTimeout(startLevel, 4000);
+  // showBackgroundImage("./images/title.png", 1);
+  // setTimeout(() => showBackgroundImage(""), 3000);
+  // setTimeout(startLevel, 4000);
 
   // spawnEgg();
   // spawnNest();
   // spawnEarth();
   // spawnSun();
   // showEarthExplosion(entityManager, Entity);
-  // showEnding(entityManager, Entity);
+  showEnding(entityManager, Entity);
 });

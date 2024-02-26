@@ -35,6 +35,7 @@ function createContinueButton(text) {
 }
 
 function showEnding(entityManager, Entity) {
+  document.querySelector(".game-area").style.backgroundColor = "black";
   const createText1 = () => {
     const wiggly = createWigglyTextDiv(250, 120, "Why did you do that?", () => {
       entityManager.add(

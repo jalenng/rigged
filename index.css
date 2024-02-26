@@ -92,6 +92,7 @@ body {
 }
 
 .wiggly {
+  color: white;
   font-size: 2rem;
   font-family: "Annie Use Your Telescope", cursive;
   display: inline-block;
@@ -101,21 +102,21 @@ body {
 .continue-button {
   font-size: 2em;
   font-family: "Annie Use Your Telescope", cursive;
-  color: white;
-  background: black;
+  color: black;
+  background: white;
   padding: 5px 15px;
   border-radius: 6px;
   animation: pulseAnim 0.5s infinite;
 }
 @keyframes pulseAnim {
   0% {
-    background: black;
+    background: white;
   }
   50% {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(255, 255, 255, 0.7);
   }
   100% {
-    background: black;
+    background: white;
   }
 }
 
