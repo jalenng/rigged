@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             spawnBomb();
             setTimeout(spawnFireExtinguisher, 1000);
+            return true;
           }
         }
       )
@@ -57,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             spawnCookedDuck();
             setTimeout(spawnToyBox, 1000);
+            return true;
           }
         }
       )
@@ -73,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           spawnIce();
           setTimeout(spawnOven, 1000);
+          return true;
         }
       })
     );
@@ -107,6 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             spawnDuck();
             setTimeout(spawnBathtub, 1000);
+            return true;
           }
         }
       )
@@ -129,6 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             spawnDuck();
             setTimeout(spawnNest, 1000);
+            return true;
           }
         }
       )
@@ -151,6 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             spawnEgg();
             setTimeout(spawnNest, 1000);
+            return true;
           }
         }
       )
@@ -178,6 +184,7 @@ document.addEventListener("DOMContentLoaded", function () {
           setTimeout(spawnWolf, 500);
           setTimeout(spawnIsland, 750);
           setTimeout(spawnBoat, 1000);
+          return true;
         }
       })
     );
@@ -233,10 +240,12 @@ document.addEventListener("DOMContentLoaded", function () {
             if (overlayImage) {
               entityManager.getEntity(to).addOverlayImage(overlayImage);
             }
-          }
-          // check if boat has everything needed
-          if (allowedBoatItems.every((item) => boatContains.includes(item))) {
-            boatContainsEverything = true;
+
+            // check if boat has everything needed
+            if (allowedBoatItems.every((item) => boatContains.includes(item))) {
+              boatContainsEverything = true;
+            }
+            return true;
           }
         }
       )
@@ -258,6 +267,7 @@ document.addEventListener("DOMContentLoaded", function () {
             entityManager.getEntity(to).remove();
             spawnEarth();
             setTimeout(spawnSun, 1000);
+            return true;
           }
         }
       )
@@ -293,6 +303,7 @@ document.addEventListener("DOMContentLoaded", function () {
             setTimeout(() => {
               showEnding(entityManager, Entity);
             }, 7000);
+            return true;
           }
         }
       )

@@ -28,11 +28,20 @@ class Entity {
     elem.addEventListener("drop", this.handleDrop.bind(this));
     elem.addEventListener("dragstart", this.handleDragStart.bind(this));
     elem.addEventListener("dragend", this.handleDragEnd.bind(this));
+    elem.addEventListener("click", this.shake.bind(this));
     this.onDrop = onDrop;
 
     // remember initial pos
     this.setPos(pos);
     this.initialPos = pos;
+
+    // spawn animation
+    elem.classList.add("spawn");
+    addEventListener("animationend", (event) => {
+      if (event.animationName === "spawn") {
+        elem.classList.remove("spawn");
+      }
+    });
 
     // TODO: improve
     document.querySelector(".game-area").appendChild(elem);
@@ -63,10 +72,17 @@ class Entity {
     const from = event.dataTransfer.getData("text/plain");
     const to = event.target.getAttribute("data-item-name");
     console.log("drop", `${from} dragged onto ${to}`);
-    this.onDrop?.({
-      from,
-      to,
-    });
+    if (
+      this.onDrop?.({
+        from,
+        to,
+      })
+    ) {
+      // success
+    } else {
+      // fail
+      this.shake();
+    }
   }
 
   setPos(pos) {
@@ -78,9 +94,8 @@ class Entity {
     const elem = this.elem;
     elem.classList.add("remove");
     addEventListener("animationend", (event) => {
-      elem;
       const parent = elem?.parentNode;
-      if (parent) {
+      if (event.animationName === "remove" && parent) {
         console.log("removing entity elem", elem);
         parent.removeChild(elem);
       }
@@ -95,5 +110,15 @@ class Entity {
     imgElem.style.left = "0";
     imgElem.style.top = "0";
     this.elem.appendChild(imgElem);
+  }
+
+  shake() {
+    const elem = this.elem;
+    elem.classList.add("shake");
+    addEventListener("animationend", (event) => {
+      if (event.animationName === "wigglyAnim") {
+        elem.classList.remove("shake");
+      }
+    });
   }
 }
