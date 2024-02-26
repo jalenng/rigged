@@ -224,6 +224,15 @@ document.addEventListener("DOMContentLoaded", function () {
           if (allowedBoatItems.includes(from)) {
             entityManager.getEntity(from).remove();
             boatContains.push(from);
+            const nameToOverlayImageMap = {
+              "cabbage": "cabbageOnBoat.png",
+              "goat": "goatOnBoat.png",
+              "wolf": "wolfOnBoat.png",
+            }
+            const overlayImage = nameToOverlayImageMap[from];
+            if (overlayImage) {
+              entityManager.getEntity(to).addOverlayImage(overlayImage)
+            }
           }
           // check if boat has everything needed
           if (allowedBoatItems.every((item) => boatContains.includes(item))) {
@@ -287,10 +296,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // START
-  setTimeout(spawnScissors, 1000);
-  spawnPackage();
+  // setTimeout(spawnScissors, 1000);
+  // spawnPackage();
 
+  spawnEgg();
+  spawnNest();
   // spawnEarth();
   // spawnSun();
-  showEarthExplosion(entityManager, Entity);
+  // showEarthExplosion(entityManager, Entity);
 });

@@ -21,7 +21,6 @@ body {
   animation-duration: 0.5s;
   /* border: 1px solid red; */
   position: absolute;
-  padding: 16px;
   /* background-color: white; */
   * {
     pointer-events: none;
@@ -29,6 +28,11 @@ body {
   img {
     max-width: 100px;
   }
+}
+.draggable.remove {
+  animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation-name: scale-out;
+  animation-duration: 0.5s;
 }
 .draggable.dragging {
   /* pointer-events: none; */
@@ -43,6 +47,17 @@ body {
   100% {
     transform: scale(1);
     opacity: 1;
+  }
+}
+
+@keyframes scale-out {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
   }
 }
 

@@ -70,12 +70,26 @@ class Entity {
     this.elem.style.top = `${pos.y}px`;
   }
 
-  remove(element) {
-    // Remove the specified HTML element from its parent
+  remove() {
     const elem = this.elem;
-    const parent = elem?.parentNode;
-    if (parent) {
-      parent.removeChild(elem);
-    }
+    elem.classList.add("remove");
+    addEventListener("animationend", (event) => {
+      elem;
+      const parent = elem?.parentNode;
+      if (parent) {
+        console.log("removing entity elem", elem);
+        parent.removeChild(elem);
+      }
+    });
+  }
+
+  // more bad coding hehe
+  addOverlayImage(image) {
+    const imgElem = document.createElement("img");
+    imgElem.src = `./images/${image}`;
+    imgElem.style.position = "absolute";
+    imgElem.style.left = "0";
+    imgElem.style.top = "0";
+    this.elem.appendChild(imgElem);
   }
 }
