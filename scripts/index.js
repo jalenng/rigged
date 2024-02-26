@@ -296,11 +296,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // START
-  // setTimeout(spawnScissors, 1000);
-  // spawnPackage();
+  setTimeout(spawnScissors, 1000);
+  spawnPackage();
 
-  spawnEgg();
-  spawnNest();
+  // spawnEgg();
+  // spawnNest();
   // spawnEarth();
   // spawnSun();
   // showEarthExplosion(entityManager, Entity);
